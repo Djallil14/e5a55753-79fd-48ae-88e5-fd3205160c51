@@ -39,3 +39,30 @@ class UserModel: NSObject {
         }
     }
 }
+
+class User {
+    var uuid: UUID
+    var name: String
+    var password: String
+    var date: Date
+    var authToken: String
+    var events: [Event]
+    
+    init(userResponse: UserResponse) {
+        self.uuid = userResponse.uuid
+        self.name = userResponse.name
+        self.password = userResponse.password
+        self.date = userResponse.date
+        self.authToken = userResponse.authToken
+        self.events = userResponse.events
+    }
+}
+
+struct UserResponse: Decodable {
+    let uuid: UUID
+    let name: String
+    let password: String
+    let date: Date
+    let authToken: String
+    let events: [Event]
+}

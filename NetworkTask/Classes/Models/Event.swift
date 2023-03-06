@@ -24,3 +24,9 @@ class EventModel: NSObject {
         }
     }
 }
+
+struct Event: Decodable {
+    let uuid: UUID
+    let name: String
+    let date: Date
+}
